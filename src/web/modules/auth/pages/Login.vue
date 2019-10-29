@@ -1,27 +1,48 @@
 <template>
-  <div class="login-page">
-    <div class="card">
-      <div class="card-header">Login</div>
-      <input type="text" class="form-control" placeholder="E-mail">
-      <input type="text" class="form-control" placeholder="Senha">
+  <form @submit.prevent="submit()">
+    <div class="login-page">
+      <div class="card">
+        <div class="card-header">Login</div>
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="E-mail"
+          v-model="form.email">
+        <input 
+          type="password" 
+          class="form-control" 
+          placeholder="Senha"
+          v-model="form.password">
+        <button>Entrar</button>
+      </div>
+
     </div>
-      
-  </div>
+  </form>
 </template>
 
 <script>
 export default {
-
+  data: () => ({
+    form: {
+      email: "",
+      password: ""
+    }
+  }),
+  mothods: {
+    submit(){
+      
+    }
+  }
 }
 </script>
 
 <style>
 .login-page {
   display: flex;
-  flex: 1;
   background-color: #c5c5c5;
   align-items: center;
   justify-content: center;
+  text-align: center;
   height: 100vh;
 }
 .card{
@@ -36,5 +57,19 @@ export default {
 }
 .card input:focus {
   outline: none;
+}
+.card button {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 30px;
+  border-radius: 4px;
+  background-color: #353535;
+  color: #FFF;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .3s;
+}
+.card button:hover {
+  opacity: .7;
 }
 </style>
