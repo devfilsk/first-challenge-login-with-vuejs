@@ -1,5 +1,5 @@
 <template>
-  <form @submit="submit()">
+  <form @submit.prevent="submit()">
     <div class="login-page">
       <div class="card">
         <div class="card-header">Login</div>
@@ -15,29 +15,40 @@
           class="form-control" 
           placeholder="Senha"
           v-model="form.password">
-        <button>Entrar</button>
+        <button type="submit" @click="submit()">Entrar</button>
       </div>
-
+      {{ form.email }}
     </div>
   </form>
 </template>
 
 <script>
-
+// import { mapActions } from 'vuex';
 // import api from '../../../../core/services/api';
 
 export default {
+  name:"Login" ,
   data: () => ({
     form: {
       email: "",
       password: ""
-    }
+    },
+    response: {}
   }),
+  created() {
+    // this.ActionSetUser({ name: "Filipe", email: "filipe@gmail.com" })
+  },
   mothods: {
-    submit: () => {
+    submit () {
+      alert("hello", this.forms);
+      // const response = await api.post('login', this.form); 
+      // eslint-disable-next-line
+      console.log(this.form)
 
+      // this.response = response;
     }
-  }
+  },
+
 }
 </script>
 
