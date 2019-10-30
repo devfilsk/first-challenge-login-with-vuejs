@@ -1,14 +1,16 @@
 <template>
-  <form @submit.prevent="submit()">
+  <form @submit="submit()">
     <div class="login-page">
       <div class="card">
         <div class="card-header">Login</div>
         <input 
+          required
           type="text" 
           class="form-control" 
           placeholder="E-mail"
           v-model="form.email">
         <input 
+          required
           type="password" 
           class="form-control" 
           placeholder="Senha"
@@ -21,6 +23,9 @@
 </template>
 
 <script>
+
+// import api from '../../../../core/services/api';
+
 export default {
   data: () => ({
     form: {
@@ -29,8 +34,8 @@ export default {
     }
   }),
   mothods: {
-    submit(){
-      
+    submit: () => {
+
     }
   }
 }
